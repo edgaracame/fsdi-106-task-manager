@@ -1,78 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="img/icon.png">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/34cefa1f3d.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/icon.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/34cefa1f3d.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="./css/style.css" />
     <title>Task Manager</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <p>Task Manager</p>
+      <p>Task Manager</p>
     </header>
 
     <main class="container">
-        <div class="card list shadow">
-            <div class="card-header">
-                <p>Your pending tasks</p>
-            </div>            
-            <button class="hide-button" id="hideButton">Hide</button>
+      <div class="card list shadow">
+        <div class="card-header">
+          <p>Your pending tasks</p>
         </div>
-
-        <div class="card form shadow" id="taskForm">
-            <div class="card-header">
-                <p>Task info</p>
-            </div>    
-            <div class="card-body text-center">
-                <div class="input-group mb-3">
-                    <label class="input-group-text" id="">Title</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="input-group mb-3">
-                    <label class="input-group-text" id="">Important</label>
-                    <div class="form-control important">
-                        <p id="textImportant">Not Important!</p>
-                        <i class="far fa-star iconImportant" id="iconImportant"></i>
-                    </div>
-                </div>
-                <div class="input-group mb-3">
-                    <label class="input-group-text" id="">Duration (days)</label>
-                    <input type="number" class="form-control">
-                </div>
-                <div class="input-group mb-3">
-                    <label class="input-group-text" id="">Deadline</label>
-                    <input type="datetime-local" class="form-control">
-                </div>
-                <div class="input-group mb-3">
-                    <label class="input-group-text" id="">Location</label>
-                    <input type="text" class="form-control">
-                </div>
-                <div class="input-group mb-3">
-                    <label class="input-group-text" id="">Status</label>
-                    <select class="form-select">
-                        <option value="" selected disabled hidden>Select Status</option>
-                        <option value="0">New</option>
-                        <option value="1">In Progress</option>
-                        <option value="2">Blocked</option>
-                        <option value="3">Completed</option>
-                        <option value="4">Removed</option>
-                    </select>
-                </div>
-                <button class="form-button">Save</button>
+        <div class="card-body text-center">
+          <button class="hide-button" id="hideButton">Hide Panel</button>
+          <div class="row">
+            <div class="column">
+              <div id="taskList" class="task-list"></div>
             </div>
+          </div>
         </div>
+      </div>
+
+      <div class="card form shadow" id="taskForm">
+        <div class="card-header">
+          <p>Task info</p>
+        </div>
+        <div class="card-body text-center">
+          <div class="input-group mb-3">
+            <label class="input-group-text" id="">Title</label>
+            <input type="text" class="form-control" id="txtTitle" />
+          </div>
+          <div class="input-group mb-3">
+            <label class="input-group-text" id="">Important</label>
+            <div class="form-control important">
+              <p id="textImportant">Not Important!</p>
+              <i class="far fa-star iconImportant" id="iconImportant"></i>
+            </div>
+          </div>
+          <div class="input-group mb-3">
+            <label class="input-group-text" id="">Duration (days)</label>
+            <input type="number" class="form-control" id="txtDuration" />
+          </div>
+          <div class="input-group mb-3">
+            <label class="input-group-text" id="">Deadline</label>
+            <input type="date" class="form-control" id="txtDeadline" />
+          </div>
+          <div class="input-group mb-3">
+            <label class="input-group-text" id="">Location</label>
+            <input type="text" class="form-control" id="txtLocation" />
+          </div>
+          <div class="input-group mb-3">
+            <label class="input-group-text" id="">Status</label>
+            <select class="form-select" id="selStatus">
+              <option value="" selected disabled hidden>Select Status</option>
+              <option value="0">New</option>
+              <option value="1">In Progress</option>
+              <option value="2">Blocked</option>
+              <option value="3">Completed</option>
+              <option value="4">Removed</option>
+            </select>
+          </div>
+          <button class="form-button" id="saveButton">Save</button>
+        </div>
+      </div>
     </main>
 
     <footer>
-        <p>&copy; Castillo Medina Edgar Antonio</p>
+      <p>&copy; Castillo Medina Edgar Antonio</p>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/testa.js"></script>
+    <script src="./js/task.js"></script>
     <script src="./js/app.js"></script>
-</body>
+  </body>
 </html>

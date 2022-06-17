@@ -1,146 +1,204 @@
-:root{
-    --darkblue: #0d206b;
-    --green: #30a597;
-    --lightgreen: #67cbc0;
-    --blue: #2374AB;
-    --pink: #e06b6b;
-    --lightpink: #ea8686;
-    --white: #FAFAFA;
+:root {
+  --darkblue: #0d206b;
+  --green: #30a597;
+  --lightgreen: #67cbc0;
+  --blue: #2374ab;
+  --pink: #e06b6b;
+  --lightpink: #ea8686;
+  --white: #fafafa;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap");
 
-body, html{
-    background-color: var(--white);
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
+body,
+html {
+  background-color: var(--white);
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
 }
 
-p{
-    margin: 0;
-    padding: 0; 
+p {
+  margin: 0;
+  padding: 0;
 }
 
-header{
-    background-color: transparent;
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+header {
+  background-color: transparent;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-header p{
-    color: var(--pink);
-    font-size: 25px;
-    text-transform: uppercase;
-    font-weight: bold;
+header p {
+  color: var(--pink);
+  font-size: 25px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: linear-gradient(to left, var(--white) 50%, var(--pink) 50%) right;
+  background-size: 200%;
+  transition: 0.25s ease-out;
+  padding: 0 2px;
 }
 
-main{
-    height: 80vh;
-    margin-top: 35px;
-    color: var(--darkblue);
+header p:hover {
+  background-position: 0 100%;
+  color: var(--white);
 }
 
-.container{
-    display: flex;
+main {
+  height: 80vh;
+  color: var(--darkblue);
 }
 
-.card{
-    margin: 0 10px;
+.container {
+  display: flex;
 }
 
-.list{
-    flex: 2;
-    background-image: linear-gradient(to bottom left, var(--green), var(--lightgreen));
-    border: transparent;
+.card {
+  margin: 0 10px;
+  overflow-y: auto;
 }
 
-.list .card-header{
-    background-color: transparent;
-    color: var(--white);
-    border: transparent;
-    text-align: center;
-    font-weight: bold;
-    font-size: 20px;
-    text-transform: uppercase;
+.list {
+  flex: 2;
+  background-image: linear-gradient(
+    to bottom left,
+    var(--green),
+    var(--lightgreen)
+  );
+  border: transparent;
 }
 
-.hide-button{
-    background-color: transparent;
-    border: 1px solid var(--white);
-    margin: 0 auto;
-    padding: 2px 30px;
-    border-radius: 15px;
-    color: var(--white);
-    margin-top: 15px;
+.list .card-header {
+  background-color: transparent;
+  color: var(--white);
+  border: transparent;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
-.hide-button:hover{
-    color: var(--green);
-    background-color: var(--white);
+.task-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-.form{
-    flex: 1;
-    background-image: linear-gradient(to bottom left, var(--darkblue), var(--blue));
-    border: transparent;
+.task {
+  width: 250px;
+  border: transparent;
+  margin: 0 10px 10px 0;
 }
 
-.form .card-header{
-    background-color: transparent;
-    color: var(--white);
-    border: transparent;
-    text-align: center;
-    font-weight: bold;
-    font-size: 20px;
-    text-transform: uppercase;
+.task .task-header {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--darkblue),
+    var(--blue)
+  );
 }
 
-.form label{
-    background-color: transparent;
-    color: var(--white);
+.task-header p {
+  color: var(--white);
+  text-transform: none;
+  font-size: 18px;
 }
 
-.important{
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+.task-body {
+  padding: 5px 10px;
 }
 
-#iconImportant{
-    font-size: 20px;
-    cursor: pointer;
-    margin-left: 5px;
+.task-body p {
+  text-align: left;
+  color: var(--darkblue);
 }
 
-#iconImportant.far{
-    color: var(--green);
+.hide-button {
+  border: 1px solid var(--white);
+  margin: 0 auto;
+  padding: 2px 30px;
+  border-radius: 15px;
+  color: var(--white);
+  background: linear-gradient(to left, transparent 50%, var(--white) 50%) right;
+  background-size: 250%;
+  transition: 0.5s ease-out;
+  margin-bottom: 25px;
 }
 
-#iconImportant.fas{
-    color: var(--pink);
+.hide-button:hover {
+  color: var(--green);
+  background-position: 0 150%;
 }
 
-.form-button{
-    background-color: transparent;
-    border: 1px solid var(--white);
-    padding: 2px 30px;
-    border-radius: 15px;
-    color: var(--white);
+.form {
+  flex: 1;
+  background-image: linear-gradient(
+    to bottom left,
+    var(--darkblue),
+    var(--blue)
+  );
+  border: transparent;
 }
 
-.form-button:hover{
-    color: var(--darkblue);
-    background-color: var(--white);
+.form .card-header {
+  background-color: transparent;
+  color: var(--white);
+  border: transparent;
+  text-align: center;
+  font-weight: bold;
+  font-size: 20px;
+  text-transform: uppercase;
 }
 
-footer{
-    height: 10vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: var(--darkblue);
+.form label {
+  background-color: transparent;
+  color: var(--white);
+}
+
+.important {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#iconImportant {
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+#iconImportant.far {
+  color: var(--green);
+}
+
+#iconImportant.fas {
+  color: var(--pink);
+}
+
+.form-button {
+  border: 1px solid var(--white);
+  padding: 2px 30px;
+  border-radius: 15px;
+  color: var(--white);
+  background: linear-gradient(to left, transparent 50%, var(--white) 50%) right;
+  background-size: 250%;
+  transition: 0.5s ease-out;
+}
+
+.form-button:hover {
+  color: var(--darkblue);
+  background-position: 0 150%;
+}
+
+footer {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--darkblue);
 }
