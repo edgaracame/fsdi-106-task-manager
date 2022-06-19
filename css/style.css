@@ -36,14 +36,13 @@ header p {
   font-size: 25px;
   text-transform: uppercase;
   font-weight: bold;
-  background: linear-gradient(to left, var(--white) 50%, var(--pink) 50%) right;
-  background-size: 200%;
-  transition: 0.25s ease-out;
+  box-shadow: inset 0 0 0 0 var(--pink);
+  transition: box-shadow 0.25s ease-in-out;
   padding: 0 2px;
 }
 
 header p:hover {
-  background-position: 0 100%;
+  box-shadow: inset 0 -4rem 0 -0.1rem var(--pink);
   color: var(--white);
 }
 
@@ -94,11 +93,31 @@ main {
   margin: 0 10px 10px 0;
 }
 
-.task .task-header {
+.task.status-0 .task-header {
   background-image: linear-gradient(
     to bottom right,
     var(--darkblue),
     var(--blue)
+  );
+}
+
+.task.status-1 .task-header {
+  background-image: linear-gradient(to bottom right, #bfa40b, #fad70b);
+}
+
+.task.status-2 .task-header {
+  background-image: linear-gradient(to bottom right, #fe7a15, #ff9f56);
+}
+
+.task.status-3 .task-header {
+  background-image: linear-gradient(to bottom right, #68832a, #94b447);
+}
+
+.task.status-4 .task-header {
+  background-image: linear-gradient(
+    to bottom right,
+    var(--pink),
+    var(--lightpink)
   );
 }
 
@@ -125,12 +144,29 @@ main {
   color: var(--white);
   background: linear-gradient(to left, transparent 50%, var(--white) 50%) right;
   background-size: 250%;
-  transition: 0.5s ease-out;
+  transition: 0.25s ease-out;
   margin-bottom: 25px;
 }
 
 .hide-button:hover {
   color: var(--green);
+  background-position: 0 150%;
+}
+
+.delete-button {
+  border: transparent;
+  padding: 0 5px;
+  font-size: 16px;
+  border-radius: 15px;
+  color: var(--pink);
+  background: linear-gradient(to left, var(--white) 50%, var(--pink) 50%) right;
+  background-size: 250%;
+  transition: 0.25s ease-out;
+  margin-bottom: 25px;
+}
+
+.delete-button:hover {
+  color: var(--white);
   background-position: 0 150%;
 }
 
@@ -186,7 +222,7 @@ main {
   color: var(--white);
   background: linear-gradient(to left, transparent 50%, var(--white) 50%) right;
   background-size: 250%;
-  transition: 0.5s ease-out;
+  transition: 0.25s ease-out;
 }
 
 .form-button:hover {
